@@ -18,9 +18,9 @@ public:
 private:
     QSqlDatabase db;
     QNetworkAccessManager *manager;
-
-    void replyFinished();
     void updating();
+private slots:
+    void replyFinished();
 };
 
 #endif // UPDATEAPP_H

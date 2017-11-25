@@ -26,7 +26,5 @@ DEFINES += QT_DEPRECATED_WARNINGS
 HEADERS += \
     updateapp.h
 
-INCLUDEPATH += C:/Qt/zlib1211
-LIBS += -LC:/Qt/zlib1211 -lz
-INCLUDEPATH += C:/Qt/quazip-0.7.3/quazip
-LIBS += -LC:/Qt/quazip-0.7.3/quazip/release -lquazip
+INCLUDEPATH += "C:\Qt\quazip-0.7.3\quazip"
+LIBS += -L"C:\Qt\quazip-0.7.3\quazip\release" -lquazip
