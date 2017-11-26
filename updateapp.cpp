@@ -31,8 +31,7 @@ UpdateApp::UpdateApp(int versionApp)
         std::cout << "Successful connection to the update server..." << std::endl;
 
     QSqlQueryModel *queryModel = new QSqlQueryModel;
-    //QString str_query = "SELECT id FROM update WHERE id > " + QString::number(versionApp) + " ORDER BY id DESC";
-    QString str_query = "SELECT id FROM update WHERE id > 1010 ORDER BY id DESC";
+    QString str_query = "SELECT id FROM update WHERE id > " + QString::number(versionApp) + " ORDER BY id DESC";
     queryModel->setQuery(str_query);
     int idLastVersion = queryModel->data(queryModel->index(0, 0)).toInt();
     if(queryModel->rowCount() <= 0)
@@ -101,6 +100,8 @@ void UpdateApp::updating()
         if(!(copyApp && copyDB))
         {
             std::cout << "Error: The application 'Trade.exe' or/and the database 'trade.sqlite' can't be copy." << std::endl;
+            QFile::remove(QCoreApplication::applicationDirPath() + "/TradeOld.exe");
+            QFile::remove(QCoreApplication::applicationDirPath() + "/tradeOld.sqlite");
             return;
         }
         // распаковываем архив
